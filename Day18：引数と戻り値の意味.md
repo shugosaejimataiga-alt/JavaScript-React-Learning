@@ -1,3 +1,197 @@
+
+## 1.基本
+
+基本の書き方（最小）
+
+**引数と戻り値のある関数**
+
+function add(a, b) {
+  return a + b;
+}
+
+a, b → 引数（外から渡すデータ）
+
+return a + b; → 戻り値（結果）
+
+
+
+**使う側（呼び出し）**
+
+const result = add(2, 3);
+
+console.log(result); // 5
+
+関数は 値を返す
+
+返った値は 変数に入れられる
+
+
+
+**超重要ポイント（短く）**
+
+console.log は 表示するだけ
+
+return は 値を返す
+
+Reactでは return が画面（JSX）になる
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+## 2,練習問題①（まず1問）
+
+問題
+
+次の条件を満たす関数を 自分で書いてください。
+
+関数名：double
+引数：num
+処理：数値を2倍にする
+戻り値：2倍した結果
+
+期待する使い方
+const result = double(5);
+console.log(result); // 10
+
+👉 コードだけ 書いて送ってください。
+正誤チェックしてから次に進みます。
+
+
+function double(num) {
+  return num * 2;
+}
+
+const result = double(8);
+console.log (result);
+
+完璧です。
+構文・考え方ともに正解です 👍
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+
+## 3.練習問題②（少しだけ発展）
+
+次は 引数は1つ・条件付き です。
+
+問題
+次の条件を満たす関数を作ってください。
+
+関数名：isAdult
+
+引数：age
+
+処理：
+
+age が 20以上 → true
+それ以外 → false
+戻り値：判定結果（true / false）
+
+期待する使い方
+const result = isAdult(18);
+console.log(result); // false
+
+👉 コードだけ 書いて送ってください。
+チェック後、Day18の最後の練習に進みます。
+
+
+function isAdult(age) {
+  return if (age >= 20) {
+    console.log("true");
+  } else {
+    console.log("false");
+  }
+}
+
+const result = isAdult(90);
+
+console.log(result);
+
+
+
+❌ 今回のズレ（結論）
+
+return if (...) は JavaScriptでは書けません
+console.log は 戻り値ではありません
+この関数は true / false を返すのが目的です
+
+
+**修正版**
+
+function isAdult(age) {
+  if (age >= 20) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+const result = isAdult(90);
+console.log(result);
+
+OKです。今のコードは完全に正解です 👍
+if / return / 戻り値 の役割、ちゃんと分離できています。
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+## 4.練習問題③（Day18ラスト）
+
+問題（引数＋条件＋戻り値）
+
+次の条件を満たす関数を書いてください。
+
+関数名：calcPrice
+
+引数：price
+
+処理内容：
+
+price が 1000以上 → price * 0.9
+それ以外 → price
+戻り値：計算後の金額（数値）
+
+
+期待する使い方
+const result = calcPrice(1200);
+console.log(result); // 1080
+
+👉 コードだけ 書いて送ってください。
+
+function calcPrice(price) {
+  if(price >= 1000) {
+    return price * 0.9;
+  } else {
+    return price;
+  };
+}
+
+const calcPrice(3000);
+console.log(calcPrice);
+
+
+❌ 今回のミス（結論）
+① 関数呼び出しは const 変数 = 関数() の形
+② console.log には「値」を渡す
+
+
+**修正版**
+
+function calcPrice(price) {
+  if(price >= 1000) {
+    return price * 0.9;
+  } else {
+    return price;
+  };
+}
+
+const result = calcPrice(3000);
+console.log(result);
+
+完璧です ✅
+文法・考え方ともに100%正解です。
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
 🟦 Day18：引数と戻り値の意味（概念理解）
 
 今日は 関数の「中身」ではなく、「出入り口」 に注目する日です。
